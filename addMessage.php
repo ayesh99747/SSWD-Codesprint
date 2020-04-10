@@ -1,5 +1,15 @@
 <?php
-require 'db.php';
+$pagename = "Add Message"; 
+echo "<link rel=stylesheet type=text/css href=mystylesheet.css>"; 
+
+echo "<title>" . $pagename . "</title>"; 
+
+echo "<body>";
+
+include("headfile.html"); 
+
+echo "<h4>" . $pagename . "</h4>";
+  require 'db.php';
 
 $username = $_SESSION["userId"];
 $message = $_POST["message"];
