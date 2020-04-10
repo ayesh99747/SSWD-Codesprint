@@ -46,7 +46,8 @@ if (isset($_GET['searchValue']) && isset($_GET['searchBy']) && isset( $_GET['sor
                 echo "<p><h5>" . $arrayp['testName'] . "</h5>"; //display product name as contained in the array
                 echo "<p>" . $arrayp['testDescripShort'];
                 echo "<p><b>&euro;" . $arrayp['testPrice'] . "</b>";
-                echo "<p><a href=ratings.php?u_prod_id=" . $arrayp['testId'] . ">Test Ratings</a></p>";
+                echo "<p><a href=ratings.php?u_prodid=" . $arrayp['testId'] . ">Test Reviews</a></p>";
+                echo "<p><a href=rating_form.php?u_prodid" . $arrayp['testId'] . ">Submit review</a></p>";
                 echo "</td>";
                 echo "</tr>";
             }
@@ -78,7 +79,8 @@ if (isset($_GET['searchValue']) && isset($_GET['searchBy']) && isset( $_GET['sor
                 echo "<p><h5>" . $arrayp['testName'] . "</h5>"; //display product name as contained in the array
                 echo "<p>" . $arrayp['testDescripShort'];
                 echo "<p><b>&euro;" . $arrayp['testPrice'] . "</b>";
-                echo "<p><a href=ratings.php?u_prod_id=" . $arrayp['testId'] . ">Test Ratings</a></p>";
+                echo "<p><a href=ratings.php?u_prodid=" . $arrayp['testId'] . ">Test Reviews</a></p>";
+                echo "<p><a href=rating_form.php?u_prodid" . $arrayp['testId'] . ">Submit review</a></p>";
                 echo "</td>";
                 echo "</tr>";
             }
