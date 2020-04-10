@@ -47,7 +47,7 @@ if (isset($_GET['searchValue']) && isset($_GET['searchBy']) && isset( $_GET['sor
                 echo "<p>" . $arrayp['testDescripShort'];
                 echo "<p><b>&euro;" . $arrayp['testPrice'] . "</b>";
                 echo "<p><a href=ratings.php?u_prodid=" . $arrayp['testId'] . ">Test Reviews</a></p>";
-                echo "<p><a href=rating_form.php?u_prodid" . $arrayp['testId'] . ">Submit review</a></p>";
+                echo "<p><a href=rating_form.php?u_prodid=" . $arrayp['testId'] . ">Submit review</a></p>";
                 echo "</td>";
                 echo "</tr>";
             }
@@ -67,7 +67,7 @@ if (isset($_GET['searchValue']) && isset($_GET['searchBy']) && isset( $_GET['sor
         while ($arrayp = mysqli_fetch_array($exeSQL)) {
             if ($arrayp == null) {
                 echo "<p><h5>No tests available!</h5>"; 
-            } else{}
+            } else{
                 echo "<tr>";
                 echo "<td style='border: 0px'>";
                 echo "<a href=prodbuy.php?u_prod_id=" . $arrayp['testId'] . "&view=yes>";
@@ -80,11 +80,12 @@ if (isset($_GET['searchValue']) && isset($_GET['searchBy']) && isset( $_GET['sor
                 echo "<p>" . $arrayp['testDescripShort'];
                 echo "<p><b>&euro;" . $arrayp['testPrice'] . "</b>";
                 echo "<p><a href=ratings.php?u_prodid=" . $arrayp['testId'] . ">Test Reviews</a></p>";
-                echo "<p><a href=rating_form.php?u_prodid" . $arrayp['testId'] . ">Submit review</a></p>";
+                echo "<p><a href=rating_form.php?u_prodid=" . $arrayp['testId'] . ">Submit review</a></p>";
                 echo "</td>";
                 echo "</tr>";
             }
         }
+    }
         echo "</table>";
 } else {
     //create a $SQL variable and populate it with a SQL statement that retrieves product details
@@ -97,21 +98,21 @@ if (isset($_GET['searchValue']) && isset($_GET['searchBy']) && isset( $_GET['sor
     //populate it with the records retrieved by the SQL query previously executed.
     //Iterate through the array i.e while the end of the array has not been reached, run through it
     while ($arrayp = mysqli_fetch_array($exeSQL)) {
-        echo "<tr>";
-            echo "<td style='border: 0px'>";
-            echo "<a href=prodbuy.php?u_prod_id=" . $arrayp['testId'] . "&view=yes>";
-            //display the small image whose name is contained in the array
-            echo "<img src=images/" .$arrayp['testPicNameSmall']. " height=250 width=250>";
-            echo "</a>";
-            echo "</td>";
-            echo "<td style='border: 0px'>";
-            echo "<p><h5>" . $arrayp['testName'] . "</h5>"; //display product name as contained in the array
-            echo "<p>" . $arrayp['testDescripShort'];
-            echo "<p><b>&euro;" . $arrayp['testPrice'] . "</b>";
-            echo "<p><a href=ratings.php?u_prodid=" . $arrayp['testId'] . ">Test Reviews</a></p>";
-            echo "<p><a href=rating_form.php?u_prodid" . $arrayp['testId'] . ">Submit review</a></p>";
-            echo "</td>";
-            echo "</tr>";
+            echo "<tr>";
+                echo "<td style='border: 0px'>";
+                echo "<a href=prodbuy.php?u_prod_id=" . $arrayp['testId'] . "&view=yes>";
+                //display the small image whose name is contained in the array
+                echo "<img src=images/" .$arrayp['testPicNameSmall']. " height=250 width=250>";
+                echo "</a>";
+                echo "</td>";
+                echo "<td style='border: 0px'>";
+                echo "<p><h5>" . $arrayp['testName'] . "</h5>"; //display product name as contained in the array
+                echo "<p>" . $arrayp['testDescripShort'];
+                echo "<p><b>&euro;" . $arrayp['testPrice'] . "</b>";
+                echo "<p><a href=ratings.php?u_prodid=" . $arrayp['testId'] . ">Test Reviews</a></p>";
+                echo "<p><a href=rating_form.php?u_prodid=" . $arrayp['testId'] . ">Submit review</a></p>";
+                echo "</td>";
+                echo "</tr>";
     }
     echo "</table>";
 }

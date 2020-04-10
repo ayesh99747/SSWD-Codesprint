@@ -12,7 +12,7 @@ echo "<body>";
 include ("headfile.html");
 
 echo "<h4>".$pagename."</h4>";
-$testid=$_GET['u_prod_id'];
+$testid=$_GET['u_prodid'];
 
 $RET = 'select * from customer_rating where prodId='.$testid."";
 $exeRET = mysqli_query($conn, $RET) or die (mysqli_error($conn));

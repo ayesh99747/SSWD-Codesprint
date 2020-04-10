@@ -2,7 +2,7 @@
 
 //create and populate pagename variable
 $pagename = "Submit Review";
-
+include("db.php");
 //use the stylesheet
 echo "<link rel=stylesheet type=text/css href=mystylesheet.css>";
 
@@ -12,7 +12,7 @@ echo "<body>";
 include ("headfile.html");
 
 echo "<h4>".$pagename."</h4>";
-if(($_POST['ratingshort']!=null) && ($_POST['ratinglong']!=null)){
+if(($_GET['ratingshort']!=null) && ($_GET['ratinglong']!=null)){
 	$id = $_SESSION['ratingproduct'];
 	$user = $_SESSION['userid'];
 	$date = date("Y/m/d");
