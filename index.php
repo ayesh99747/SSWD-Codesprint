@@ -13,10 +13,17 @@ include("detectlogin.php");
 
 echo "<h4>" . $pagename . "</h4>"; //display name of the page on the web page
 
-echo "<form action='/action_page.php'>";
+echo "<form action='/products.php' method='GET'>";
     echo "<label for='searchValue'>Search - </label>";
     echo "<input type='text' placeholder='Search' name='searchValue'>";
-    echo "<button type='submit>Submit</button>";
+
+    echo "<label for='options'>Search By - </label>";
+    echo "<select id='options'>";
+    echo "<option value='availability'>availability</option>";
+    echo "<option value='cost'>cost</option>";
+    echo "</select>";
+    
+    echo "<input type='submit' value='Submit'>";
 echo "</form>";
     
           
