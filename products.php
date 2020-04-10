@@ -18,7 +18,7 @@ $searchValue = $_GET['searchValue'];
 $searchCategory = $_GET['searchValue'];
 $sortOrder = $_GET['searchValue'];
 
-if (!isempty($searchValue) || !isempty($searchCategory) || !isempty($sortOrder)) {
+if (!empty($searchValue) || !empty($searchCategory) || !empty($sortOrder)) {
     # code...
 } else {
     //create a $SQL variable and populate it with a SQL statement that retrieves product details
