@@ -33,6 +33,7 @@ while ($arrayp = mysqli_fetch_array($exeSQL)) {
     echo "<p><h5>" . $arrayp['prodName'] . "</h5>"; //display product name as contained in the array
     echo "<p>" . $arrayp['prodDescripShort'];
     echo "<p><b>&euro;" . $arrayp['prodPrice'] . "</b>";
+    echo "<p><a href=ratings.php?u_prod_id=" . $arrayp['prodId'] . ">Test Ratings</a></p>";
     echo "</td>";
     echo "</tr>";
 }
