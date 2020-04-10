@@ -26,7 +26,7 @@ if (!isset($_SESSION["user_type"]) || $_SESSION["user_type"] != "Administrator")
         }
     }
     $prodid = $_GET['u_prod_id'];
-    $SQL = "select testId, testName, testPicNameLarge, testDescripShort, testPrice from tests WHERE testId='" . $prodid . "';";
+    $SQL = "select testId, testName, testPicNameLarge, testDescripLong, testPrice from tests WHERE testId='" . $prodid . "';";
     //run SQL query for connected DB or exit and display error message
     $exeSQL = mysqli_query($conn, $SQL) or die(mysqli_error("Error"));
     echo "<table style='border: 0px'>";
@@ -56,7 +56,7 @@ if (!isset($_SESSION["user_type"]) || $_SESSION["user_type"] != "Administrator")
         echo "<p>Date of the test: ";
         //create form made of one text field and one button for user to enter quantity
         //the value entered in the form will be posted to the basket.php to be processed
-        echo "<form action=basket.php method=post>";
+        echo "<form action=shoppingcart.php method=post>";
         echo "<input type='date' name='testDate'>";
         echo "<br/>";
         echo "<br/>";

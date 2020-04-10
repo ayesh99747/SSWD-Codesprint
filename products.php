@@ -75,7 +75,7 @@ if (!isempty($searchValue) || !isempty($searchCategory) || !isempty($sortOrder))
     }
 } else {
     //create a $SQL variable and populate it with a SQL statement that retrieves product details
-    $SQL = "SELECT `testId`, `testName`, `testPicNameSmall`, `testDescripShort`,  `testPrice` FROM `tests`";
+    $SQL = "select testId, testName, testPicNameSmall, testDescripShort, testPrice from tests";
     //run SQL query for connected DB or exit and display error message
     $exeSQL = mysqli_query($conn, $SQL) or die(mysqli_error($conn));
     echo "<table style='border: 0px'>";
