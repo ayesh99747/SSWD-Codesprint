@@ -13,6 +13,68 @@ userPassword varchar(50) NOT NULL,
 CONSTRAINT user_userid_pk PRIMARY KEY(userId)
 );
 
+INSERT INTO `users` (
+    `userType`,
+    `userFName`,
+    `userSName`,
+    `userAddress`,
+    `userPostCode`,
+    `userTelNo`,
+    `userEmail`,
+    `userPassword`
+  )
+VALUES
+  (
+    'Customer',
+    'Jessica',
+    'Bale',
+    'Colombo, Sri Lanka',
+    '06500',
+    '0112345678',
+    'jess@gmail.com',
+    'qwe'
+  ),
+  (
+    'Customer',
+    'Jane',
+    'Doe',
+    'Colombo, Sri Lanka',
+    '01500',
+    '1234567891',
+    'jane@gmail.com',
+    'asd'
+  ),
+   (
+    'Customer',
+    'Max',
+    'Loe',
+    'Colombo, Sri Lanka',
+    '01400',
+    '1234567891',
+    'maxie@gmail.com',
+    'rfv'
+  ),
+   (
+    'Customer',
+    'Alex',
+    'Bass',
+    'Colombo, Sri Lanka',
+    '01400',
+    '1234567891',
+    'bass@gmail.com',
+    '9876'
+  ),
+  (
+    'Administrator',
+    'Anita',
+    'Basil',
+    'Colombo, Sri Lanka',
+    '01500',
+    '9876543210',
+    'anita@gmail.com',
+    'wer'
+  );
+
 CREATE TABLE IF NOT EXISTS product (
   prodId INT(4) NOT NULL AUTO_INCREMENT,
   prodName VARCHAR(30) NOT NULL,
