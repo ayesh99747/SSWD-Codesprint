@@ -14,12 +14,13 @@ include("detectlogin.php");
 echo "<h4>" . $pagename . "</h4>"; //display name of the page on the web page
 
 
-$searchValue = $_GET['searchValue'];
-$searchCategory = $_GET['searchBy'];
-$sortOrder = $_GET['sortBy'];
-$searchType = $_GET['searchType'];
 
-if (!empty($searchValue) && !empty($searchCategory) && !empty($sortOrder)) {
+
+if (isset($_GET['searchValue']) && isset($_GET['searchBy']) && isset( $_GET['sortBy']) && isset($_GET['searchType'])) {
+    $searchValue = $_GET['searchValue'];
+    $searchCategory = $_GET['searchBy'];
+    $sortOrder = $_GET['sortBy'];
+    $searchType = $_GET['searchType'];
     if ($searchType == 'exact') {
         //create a $SQL variable and populate it with a SQL statement that retrieves product details
         $SQL = "SELECT `testId`, `testName`, `testPicNameSmall`, `testPicNameLarge`, `testDescripShort`, `testDescripLong`, `testPrice` FROM `tests` WHERE ".$searchCategory."=".$searchValue." ";
