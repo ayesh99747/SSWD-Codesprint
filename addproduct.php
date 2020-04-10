@@ -9,7 +9,7 @@ echo "<body>";
 include("headfile.html"); 
 
 echo "<h4>" . $pagename . "</h4>"; 
-if ($_SESSION["user_type"] == "Administrator") {
+if (isset($_SESSION["user_type"]) && $_SESSION["user_type"] == "Administrator") {
     echo "<form action='addproduct_conf.php' method='post'>";
     echo "<table style='border:0px'>";
     echo "<tr><td style='border:0px' class='signuptable'>";
