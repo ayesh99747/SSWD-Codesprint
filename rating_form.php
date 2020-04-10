@@ -13,8 +13,8 @@ echo "<body>";
 include ("headfile.html");
 
 echo "<h4>".$pagename."</h4>";
-
-echo "<form id=reviewForm method=post action=>";
+$_SESSION['ratingproduct'] = $_GET['u_prodid'];
+echo "<form id=reviewForm method=get action='process_rating.php'>";
 	echo "<table style='border:0px'>";
 		echo "<tr>";
 			echo "<td style='border:0px'><label>Rating in short: </label></td>";
