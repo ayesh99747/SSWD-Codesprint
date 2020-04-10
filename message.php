@@ -6,6 +6,16 @@
   </head>
   <body>
     <?php
+    $pagename = "Forum"; 
+    echo "<link rel=stylesheet type=text/css href=mystylesheet.css>"; 
+    
+    echo "<title>" . $pagename . "</title>"; 
+    
+    echo "<body>";
+    
+    include("headfile.html"); 
+    
+    echo "<h4>" . $pagename . "</h4>";
       require 'db.php';
       echo "<br>";
       $display_msgs = mysqli_query($conn, "SELECT * FROM messages;");

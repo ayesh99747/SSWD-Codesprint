@@ -21,8 +21,17 @@
 </html>
 
 <?php
+$pagename = "Reply To Message"; 
+echo "<link rel=stylesheet type=text/css href=mystylesheet.css>"; 
 
-  require 'connect.php';
+echo "<title>" . $pagename . "</title>"; 
+
+echo "<body>";
+
+include("headfile.html"); 
+
+echo "<h4>" . $pagename . "</h4>";
+  require 'db.php';
 
   if (isset($_POST['reply'])) {
     $username = $_SESSION["userId"];
