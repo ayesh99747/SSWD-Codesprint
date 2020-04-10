@@ -1,7 +1,7 @@
 <?php
 require 'connect.php';
 
-$username = $_POST["username"];
+$username = $_SESSION["userId"];
 $message = $_POST["message"];
 $time = date("Y-m-d h:i:s");
 
