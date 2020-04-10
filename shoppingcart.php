@@ -22,15 +22,13 @@ if (isset($_POST['hidden_prodid'])) {
 
 if (isset($_POST['h_prodid'])) {
     $newprodid = $_POST['h_prodid'];
-    $reququantity = $_POST['prod_quantity'];
-    // echo "Id of selected product: " .$newprodid. "<br>";
-    // echo "Quantity of selected product: " .$reququantity;
+    $testDate = $_POST['testDate'];
 
     //create a new cell in the basket session array. Index this cell with the new product id.
     //Inside the cell store the required product quantity
-    $_SESSION['basket'][$newprodid] = $reququantity;
+    $_SESSION['basket'][$newprodid] = $testDate;
     //echo "<p>The doc id ".$newdocid." has been ".$_SESSION['basket'][$newdocid];
-    echo "<p>1 item added to the basket</p>";
+    echo "<p>1 test added to the basket</p>";
 } else {
     echo "<p>Current basket unchanged</p>";
 }
@@ -38,31 +36,28 @@ if (isset($_POST['h_prodid'])) {
 
 echo "<table>";
 echo "<tr>";
-echo "<th>Product Name</th>";
+echo "<th>Test Name</th>";
 echo "<th>Price</th>";
-echo "<th>Quantity</th>";
-echo "<th>Subtotal</th>";
+echo "<th>Date</th>";
 echo "<th></th>";
 echo "</tr>";
 $total = 0;
 if (isset($_SESSION['basket'])) {
     foreach ($_SESSION['basket'] as $index => $value) {
         //create a $SQL variable and populate it with a SQL statement that retrieves product details
-        $SQL = "select prodId, prodName, prodPrice from Product WHERE prodID = $index";
+        $SQL = "select testId, testName, testPrice from tests WHERE testID = $index";
         //run SQL query for connected DB or exit and display error message
         $exeSQL = mysqli_query($conn, $SQL) or die(mysqli_error($conn));
         while ($arrayp = mysqli_fetch_array($exeSQL)) {
             echo "<tr>";
-            echo "<td>" . $arrayp['prodName'] . "</td>";
-            echo "<td>&euro;" . $arrayp['prodPrice'] . "</td>";
-            echo "<td class='quantity'>" . $value . "</td>";
-            $subtotal = $value * $arrayp['prodPrice'];
-            echo "<td>&euro;" . $subtotal . "</td>";
-            $total += $subtotal;
-            echo "<form action=basket.php method=post>";
+            echo "<td>" . $arrayp['testName'] . "</td>";
+            echo "<td>&euro;" . $arrayp['testPrice'] . "</td>";
+            echo "<td class='quantity'>" . $testDate . "</td>";
+            $total += $arrayp['testPrice'];
+            echo "<form action=shoppingcart.php method=post>";
             echo "<td><input type=submit value='Remove'></td>";
             //pass the product id to the next page basket.php as a hidden value
-            echo "<input type=hidden name='hidden_prodid' value=" . $arrayp['prodId'] . ">";
+            echo "<input type=hidden name='hidden_prodid' value=" . $arrayp['testId'] . ">";
             echo "</form>";
             echo "</tr>";
         }
