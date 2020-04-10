@@ -1,18 +1,16 @@
 CREATE DATABASE codesprint;
-
 CREATE TABLE Users(
-userId int(4) AUTO_INCREMENT,
-userType varchar(1) NOT NULL,
-userFName varchar(50) NOT NULL,
-userSName varchar(50) NOT NULL,
-userAddress varchar(50) NOT NULL,
-userPostCode varchar(50) NOT NULL,
-userTelNo varchar(50) NOT NULL,
-userEmail varchar(50) NOT NULL,
-userPassword varchar(50) NOT NULL,
-CONSTRAINT user_userid_pk PRIMARY KEY(userId)
+  userId int(4) AUTO_INCREMENT,
+  userType varchar(1) NOT NULL,
+  userFName varchar(50) NOT NULL,
+  userSName varchar(50) NOT NULL,
+  userAddress varchar(50) NOT NULL,
+  userPostCode varchar(50) NOT NULL,
+  userTelNo varchar(50) NOT NULL,
+  userEmail varchar(50) NOT NULL,
+  userPassword varchar(50) NOT NULL,
+  CONSTRAINT user_userid_pk PRIMARY KEY(userId)
 );
-
 INSERT INTO `users` (
     `userType`,
     `userFName`,
@@ -44,7 +42,7 @@ VALUES
     'jane@gmail.com',
     'asd'
   ),
-   (
+  (
     'C',
     'Max',
     'Loe',
@@ -54,7 +52,7 @@ VALUES
     'maxie@gmail.com',
     'rfv'
   ),
-   (
+  (
     'C',
     'Alex',
     'Bass',
@@ -74,8 +72,7 @@ VALUES
     'anita@gmail.com',
     'wer'
   );
-
-  CREATE TABLE IF NOT EXISTS test (
+CREATE TABLE IF NOT EXISTS tests (
     testId INT(4) NOT NULL AUTO_INCREMENT,
     testName VARCHAR(30) NOT NULL,
     testPicNameSmall VARCHAR(100) NOT NULL,
@@ -86,7 +83,7 @@ VALUES
     CONSTRAINT proid_product_pk PRIMARY KEY (testId),
     CONSTRAINT prodname_product_unique UNIQUE (testName)
   );
-INSERT INTO `test` (
+INSERT INTO `tests` (
     `testName`,
     `testPicNameSmall`,
     `testPicNameLarge`,
@@ -101,23 +98,23 @@ VALUES
     'spelling.jpg',
     'Do these spelling tests and really improve your spelling. These can also help your reading by listening and reading along.',
     'Correct spelling says a lot about a person. And it says a lot about you as a jobseeker as well, especially when you are not spelling correctly.',
-    '250',
+    '250'
   ),
   (
     'Antonym Test',
     'antonym.jpg',
     'antonym.jpg',
     'Do these spelling tests and really improve your spelling. These can also help your reading by listening and reading along.',
-    'Antonym tests are standardized psychometric assessment tests that provide the employing organization with information about a candidate\'s knowledge of the English language.',
-    '170',
+    'Antonym tests are standardized psychometric assessment tests that provide the employing organization with information about a candidate\\\'s knowledge of the English language.',
+    '170'
   ),
   (
     'Synoynm Test',
     'synonym.jpg',
     'synonym.jpg',
     'Do these spelling tests and really improve your spelling. These can also help your reading by listening and reading along.',
-    'Synonym tests are standardized psychometric assessment tests that provide the employing organization with information about a candidate\'s knowledge of the English language.',
-    '150',
+    'Synonym tests are standardized psychometric assessment tests that provide the employing organization with information about a candidate\\\'s knowledge of the English language.',
+    '150'
   );
 CREATE TABLE IF NOT EXISTS orders (
     orderNo INT(4) NOT NULL AUTO_INCREMENT,
@@ -127,25 +124,19 @@ CREATE TABLE IF NOT EXISTS orders (
     CONSTRAINT orderno_orders_pk PRIMARY KEY (orderNo),
     CONSTRAINT userid_orders_fk FOREIGN KEY (userId) REFERENCES users (userId) ON UPDATE CASCADE ON DELETE CASCADE
   );
-
-
-  CREATE TABLE WishList(
-prodId int(4) NOT NULL,
-userId int(4) NOT NULL,
-CONSTRAINT wishlist_wid_pk PRIMARY KEY(prodId, userId),
-CONSTRAINT wishlist_prodid_fk FOREIGN KEY (prodId)
-    REFERENCES Product(prodId),
-CONSTRAINT wishlist_userid_fk FOREIGN KEY (userId)
-    REFERENCES Users(userId)
-);
-
+CREATE TABLE WishList(
+    prodId int(4) NOT NULL,
+    userId int(4) NOT NULL,
+    CONSTRAINT wishlist_wid_pk PRIMARY KEY(prodId, userId),
+    CONSTRAINT wishlist_prodid_fk FOREIGN KEY (prodId) REFERENCES Product(prodId),
+    CONSTRAINT wishlist_userid_fk FOREIGN KEY (userId) REFERENCES Users(userId)
+  );
 CREATE TABLE Messages(
-msgID INT(10) AUTO_INCREMENT,
-userId INT(4) NOT NULL,
-message VARCHAR(1000),
-state VARCHAR(10) NOT NULL,
-submitTime DateTime NOT NULL,
-CONSTRAINT message_msgid_pk PRIMARY KEY(msgID),
-CONSTRAINT message_userid_fk FOREIGN KEY (userId)
-    REFERENCES Users(userId)
-);
+    msgID INT(10) AUTO_INCREMENT,
+    userId INT(4) NOT NULL,
+    message VARCHAR(1000),
+    state VARCHAR(10) NOT NULL,
+    submitTime DateTime NOT NULL,
+    CONSTRAINT message_msgid_pk PRIMARY KEY(msgID),
+    CONSTRAINT message_userid_fk FOREIGN KEY (userId) REFERENCES Users(userId)
+  );
