@@ -32,6 +32,7 @@ if (isset($_GET['searchValue']) && isset($_GET['searchBy']) && isset( $_GET['sor
         //Iterate through the array i.e while the end of the array has not been reached, run through it
         while ($arrayp = mysqli_fetch_array($exeSQL)) {
             if ($arrayp == null) {
+            
                 echo "<p><h5>No tests available!</h5>"; 
             } else {
                 echo "<tr>";
@@ -65,7 +66,7 @@ if (isset($_GET['searchValue']) && isset($_GET['searchBy']) && isset( $_GET['sor
         while ($arrayp = mysqli_fetch_array($exeSQL)) {
             if ($arrayp == null) {
                 echo "<p><h5>No tests available!</h5>"; 
-            } else {
+            } else{}
                 echo "<tr>";
                 echo "<td style='border: 0px'>";
                 echo "<a href=prodbuy.php?u_prod_id=" . $arrayp['testId'] . "&view=yes>";
@@ -83,7 +84,6 @@ if (isset($_GET['searchValue']) && isset($_GET['searchBy']) && isset( $_GET['sor
             }
         }
         echo "</table>";
-    }
 } else {
     //create a $SQL variable and populate it with a SQL statement that retrieves product details
 
