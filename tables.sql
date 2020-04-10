@@ -174,7 +174,7 @@ SET time_zone = "+00:00";
 
 CREATE TABLE `customer_rating` (
   `ratingId` int(4) NOT NULL,
-  `prodId` int(4) NOT NULL,
+  `testId` int(4) NOT NULL,
   `userId` int(4) NOT NULL,
   `ratingDate` datetime NOT NULL,
   `ratingShort` varchar(40) NOT NULL,
@@ -185,7 +185,7 @@ CREATE TABLE `customer_rating` (
 -- Dumping data for table `customer_rating`
 --
 
-INSERT INTO `customer_rating` (`ratingId`, `prodId`, `userId`, `ratingDate`, `ratingShort`, `ratingLong`) VALUES
+INSERT INTO `customer_rating` (`ratingId`, `testId`, `userId`, `ratingDate`, `ratingShort`, `ratingLong`) VALUES
 (1, 2, 1, '2020-04-08 00:00:00', 'amazing product', 'dfdfdfdfdfdfdsfdsffdfdfdfdsfdf');
 
 --
@@ -197,7 +197,7 @@ INSERT INTO `customer_rating` (`ratingId`, `prodId`, `userId`, `ratingDate`, `ra
 --
 ALTER TABLE `customer_rating`
   ADD PRIMARY KEY (`ratingId`),
-  ADD KEY `fk_prodId` (`prodId`),
+  ADD KEY `fk_prodId` (`testId`),
   ADD KEY `fk` (`userId`);
 
 --
@@ -219,9 +219,4 @@ ALTER TABLE `customer_rating`
 --
 ALTER TABLE `customer_rating`
   ADD CONSTRAINT `fk` FOREIGN KEY (`userId`) REFERENCES `users` (`userId`),
-  ADD CONSTRAINT `fk_prodId` FOREIGN KEY (`prodId`) REFERENCES `product` (`prodId`);
-COMMIT;
-
-/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
-/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
-/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
+  ADD CONSTRAINT `fk_prodId` FOREIGN KEY (`testId`) REFERENCES `tests` (`testId`);
