@@ -34,7 +34,7 @@ echo "<h4>" . $pagename . "</h4>";
   require 'db.php';
 
   if (isset($_POST['reply'])) {
-    $username = $_SESSION["userId"];
+    $username = $_SESSION["userid"];
     $message = $_POST["message"];
     $time = date("Y-m-d h:i:s");
 
