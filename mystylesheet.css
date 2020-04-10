@@ -137,7 +137,7 @@ body {
   color: white;
   height: 70%;
   width: 100%;
-  background-image: url(../../assets/images/homepage.jpg);
+  background-image: url(./images/homepage.jpg);
   background-size: cover;
   overflow: hidden;
   background-repeat: no-repeat;
