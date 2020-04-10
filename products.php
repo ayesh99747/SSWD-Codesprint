@@ -24,7 +24,7 @@ echo "<table style='border: 0px'>";
 while ($arrayp = mysqli_fetch_array($exeSQL)) {
     echo "<tr>";
     echo "<td style='border: 0px'>";
-    echo "<a href='prodbuy.php?u_prod_id=" . $arrayp['prodId'] . "'>";
+    echo "<a href=prodbuy.php?u_prod_id=" . $arrayp['prodId'] . "&view=yes>";
     //display the small image whose name is contained in the array
     echo "<img src=images/" .$arrayp['prodPicNameSmall']. " height=250 width=250>";
     echo "</a>";
