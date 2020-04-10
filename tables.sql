@@ -25,7 +25,7 @@ INSERT INTO `users` (
   )
 VALUES
   (
-    'Customer',
+    'C',
     'Jessica',
     'Bale',
     'Colombo, Sri Lanka',
@@ -35,7 +35,7 @@ VALUES
     'qwe'
   ),
   (
-    'Customer',
+    'C',
     'Jane',
     'Doe',
     'Colombo, Sri Lanka',
@@ -45,7 +45,7 @@ VALUES
     'asd'
   ),
    (
-    'Customer',
+    'C',
     'Max',
     'Loe',
     'Colombo, Sri Lanka',
@@ -55,7 +55,7 @@ VALUES
     'rfv'
   ),
    (
-    'Customer',
+    'C',
     'Alex',
     'Bass',
     'Colombo, Sri Lanka',
@@ -65,7 +65,7 @@ VALUES
     '9876'
   ),
   (
-    'Administrator',
+    'A',
     'Anita',
     'Basil',
     'Colombo, Sri Lanka',
