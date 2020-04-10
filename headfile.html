@@ -23,13 +23,12 @@
                     echo "<li><a href='index.php'>Search</a></li>";
                     echo "<li><a href='products.php'>Products</a></li>";
                     echo "<li><a href='addproduct.php'>Add Product</a></li>";
-                    echo "<li><a href='editproduct.php'>Edit Product</a></li>";
-                    echo "<li><a href='processorders.php'>Process Orders</a></li>";
                     echo "<li style='float: right'><a href='logout.php'>Staff Logout</a></li>";
                 } else if ($_SESSION["user_type"] == "Customer") {
                     echo "<li><a href='index.php'>Search</a></li>";
                     echo "<li><a href='products.php'>Products</a></li>";
                     echo "<li><a href='logout.php'>Logout</a></li>";
+                    echo "<li style='float: right'><a href='wishlist.php'>Wish List</a></li>";
                     echo "<li style='float: right'><a href='shoppingcart.php'>Smart Basket</a></li>";
                 }
                
