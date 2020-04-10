@@ -5,11 +5,12 @@
     <title></title>
   </head>
   <body>
-    <h5>Reply</h5>
+    
     <?php
+    include("headfile.html"); 
     if(isset($_GET['id']) & !empty($_GET['id'])){
       $id = $_GET['id'];
-
+      echo "<h5>Reply</h5>";
       echo "<form class='' action='replyMessage.php?id=$id' method='post'>
         
         <br><textarea name='message' rows='3' cols='80' placeholder='Write your reply here...'></textarea>
@@ -28,7 +29,7 @@ echo "<title>" . $pagename . "</title>";
 
 echo "<body>";
 
-include("headfile.html"); 
+
 
 echo "<h4>" . $pagename . "</h4>";
   require 'db.php';
