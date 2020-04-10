@@ -1,7 +1,7 @@
 <?php
 include("db.php"); //include db.php file to connect to DB
 echo "<link rel=stylesheet type=text/css href=mystylesheet.css>"; //Call in stylesheet
-$pagename = "Make your home smart"; //create and populate variable called $pagename
+$pagename = "Products"; //create and populate variable called $pagename
 
 echo "<title>" . $pagename . "</title>"; //display name of the page as window title
 
