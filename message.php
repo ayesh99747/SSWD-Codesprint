@@ -4,7 +4,6 @@
     <meta charset="utf-8">
     <title>Message</title>
   </head>
-  <body>
     <?php
     $pagename = "Forum"; 
     echo "<link rel=stylesheet type=text/css href=mystylesheet.css>"; 
@@ -18,10 +17,10 @@
     echo "<h4>" . $pagename . "</h4>";
       require 'db.php';
       echo "<br>";
-      $display_msgs = mysqli_query($conn, "SELECT * FROM messages;");
-      while ($row = mysqli_fetch_assoc($display_msgs)) {
-          $msgID = $row["msgID"];
-          $username = $_SESSION["userId"];
+      $display_msgs = mysqli_query($conn, "SELECT msgID, userFName, message, submitTime,state FROM messages, Users WHERE messages.userId=Users.userId;");
+      while ($row = mysqli_fetch_array($display_msgs)) {
+        $msgID=$row["msgID"];
+          $username =$row["userFName"];
           $message = $row["message"];
           $reply = $row["state"];
           $submitTime = $row["submitTime"];
