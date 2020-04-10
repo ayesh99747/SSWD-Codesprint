@@ -27,8 +27,7 @@ if ($pname != "" && $spname != "" && $lpname != "" && $sdescrip != "" && $ldescr
         echo "<p>Short Description: ".$sdescrip."</p>";
         echo "<p>Long Description: ".$ldescrip."</p>";
         echo "<p>Price: ".$price."</p>";
-        echo "<p>Initial Quantity: ".$isquantity."</p>";
-        $SQL = "insert into Product (prodName, prodPicNameSmall, prodPicNameLarge, prodDescripShort, prodDescripLong, prodPrice) values ('".$pname."','" . $spname . "','" . $lpname . "','" . $sdescrip . "','" . $ldescrip . "'," . $price . ");";
+        $SQL = "insert into tests (testName, testPicNameSmall, testPicNameLarge, testDescripShort, testDescripLong, testPrice) values ('".$pname."','" . $spname . "','" . $lpname . "','" . $sdescrip . "','" . $ldescrip . "'," . $price . ");";
           //run SQL query for connected DB or exit and display error message
     mysqli_query($conn, $SQL);
     } else {

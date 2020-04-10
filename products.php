@@ -13,8 +13,16 @@ include("detectlogin.php");
 
 echo "<h4>" . $pagename . "</h4>"; //display name of the page on the web page
 
-//create a $SQL variable and populate it with a SQL statement that retrieves product details
-$SQL = "select testId, testName, testPicNameSmall, testDescripShort, testPrice from tests";
+
+$searchValue = $_GET['searchValue'];
+$searchCategory = $_GET['searchValue'];
+$sortOrder = $_GET['searchValue'];
+
+if (!isempty($searchValue) || !isempty($searchCategory) || !isempty($sortOrder)) {
+    # code...
+} else {
+    //create a $SQL variable and populate it with a SQL statement that retrieves product details
+$SQL = "select prodId, prodName, prodPicNameSmall, prodDescripShort, prodPrice from Product";
 //run SQL query for connected DB or exit and display error message
 $exeSQL = mysqli_query($conn, $SQL) or die(mysqli_error($conn));
 echo "<table style='border: 0px'>";
@@ -38,6 +46,12 @@ while ($arrayp = mysqli_fetch_array($exeSQL)) {
     echo "</tr>";
 }
 echo "</table>";
+}
+
+
+
+
+
 
 include("footfile.html"); //include foot layout
 

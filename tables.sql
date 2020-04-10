@@ -125,10 +125,10 @@ CREATE TABLE IF NOT EXISTS orders (
     CONSTRAINT userid_orders_fk FOREIGN KEY (userId) REFERENCES users (userId) ON UPDATE CASCADE ON DELETE CASCADE
   );
 CREATE TABLE WishList(
-    prodId int(4) NOT NULL,
+    testId int(4) NOT NULL,
     userId int(4) NOT NULL,
-    CONSTRAINT wishlist_wid_pk PRIMARY KEY(prodId, userId),
-    CONSTRAINT wishlist_prodid_fk FOREIGN KEY (prodId) REFERENCES Product(prodId),
+    CONSTRAINT wishlist_wid_pk PRIMARY KEY(testId, userId),
+    CONSTRAINT wishlist_testid_fk FOREIGN KEY (testId) REFERENCES Tests(testId),
     CONSTRAINT wishlist_userid_fk FOREIGN KEY (userId) REFERENCES Users(userId)
   );
 CREATE TABLE Messages(

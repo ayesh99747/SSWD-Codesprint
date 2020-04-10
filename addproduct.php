@@ -13,7 +13,7 @@ if ($_SESSION["user_type"] == "Administrator") {
     echo "<form action='addproduct_conf.php' method='post'>";
     echo "<table style='border:0px'>";
     echo "<tr><td style='border:0px' class='signuptable'>";
-    echo "<label>*Product Name:</label><br></td>";
+    echo "<label>*Test Name:</label><br></td>";
     echo "<td style='border:0px' class='signuptable'>";
     echo "<input type='text' class='signupinput' name='pname'><br>";
     echo "</td></tr>";
