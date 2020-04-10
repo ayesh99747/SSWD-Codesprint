@@ -1,5 +1,5 @@
 <?php
-$pagename = "Add Product"; 
+$pagename = "Add Tests"; 
 echo "<link rel=stylesheet type=text/css href=mystylesheet.css>"; 
 
 echo "<title>" . $pagename . "</title>"; 
