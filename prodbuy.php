@@ -56,7 +56,7 @@ if (!isset($_SESSION["user_type"]) || $_SESSION["user_type"] != "Administrator")
         echo "<p>Date of the test: ";
         //create form made of one text field and one button for user to enter quantity
         //the value entered in the form will be posted to the basket.php to be processed
-        echo "<form action=basket.php method=post>";
+        echo "<form action=shoppingcart.php method=post>";
         echo "<input type='date' name='testDate'>";
         echo "<br/>";
         echo "<br/>";
