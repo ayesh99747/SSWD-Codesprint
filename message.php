@@ -6,7 +6,7 @@
   </head>
   <body>
     <?php
-      require 'connect.php';
+      require 'db.php';
       echo "<br>";
       $display_msgs = mysqli_query($conn, "SELECT * FROM messages;");
       while ($row = mysqli_fetch_assoc($display_msgs)) {
