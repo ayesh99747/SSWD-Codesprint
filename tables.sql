@@ -163,3 +163,12 @@ CONSTRAINT wishlist_prodid_fk FOREIGN KEY (prodId)
 CONSTRAINT wishlist_userid_fk FOREIGN KEY (userId)
     REFERENCES Users(userId)
 );
+
+CREATE TABLE messages (
+msgID INT(10) UNSIGNED AUTO_INCREMENT PRIMARY KEY,
+username VARCHAR(25) NOT NULL,
+message VARCHAR(1000),
+state VARCHAR(10) NOT NULL,
+submittime datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
+CONSTRAINT unq_user UNIQUE (username)
+);
