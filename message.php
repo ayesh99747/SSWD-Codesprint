@@ -11,7 +11,7 @@
       $display_msgs = mysqli_query($conn, "SELECT * FROM messages;");
       while ($row = mysqli_fetch_assoc($display_msgs)) {
           $msgID = $row["msgID"];
-          //$username = $row["userId"];
+          $username = $_SESSION["userId"];
           $message = $row["message"];
           $reply = $row["state"];
           $submitTime = $row["submitTime"];
