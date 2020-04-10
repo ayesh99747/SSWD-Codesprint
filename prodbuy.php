@@ -26,7 +26,7 @@ if (!isset($_SESSION["user_type"]) || $_SESSION["user_type"] != "Administrator")
         }
     }
     $prodid = $_GET['u_prod_id'];
-    $SQL = "select testId, testName, testPicNameSmall, testDescripShort, testPrice from tests WHERE testId='" . $prodid . "';";
+    $SQL = "select testId, testName, testPicNameLarge, testDescripShort, testPrice from tests WHERE testId='" . $prodid . "';";
     //run SQL query for connected DB or exit and display error message
     $exeSQL = mysqli_query($conn, $SQL) or die(mysqli_error("Error"));
     echo "<table style='border: 0px'>";
