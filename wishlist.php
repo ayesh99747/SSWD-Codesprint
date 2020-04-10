@@ -10,11 +10,11 @@ echo "<h4>" . $pagename . "</h4>";
 if (isset($_SESSION["user_type"]) && $_SESSION["user_type"] == "Customer") {
     if (isset($_POST['del_prodid'])) {
         $delprodid = $_POST['del_prodid'];
-        $SQL1 = "DELETE FROM WishList WHERE prodId=" . $delprodid . " AND userId=" . $_SESSION['userid'] . ";";
+        $SQL1 = "DELETE FROM WishList WHERE testId=" . $delprodid . " AND userId=" . $_SESSION['userid'] . ";";
         $exeSQL = mysqli_query($conn, $SQL1) or die(mysqli_error("Error"));
         echo "1 item removed from the wish list";
     }
-    $SQL = "SELECT prodName, prodPrice,Product.prodId FROM WishList, Product WHERE userId=" . $_SESSION['userid'] . " AND Product.prodId=WishList.prodId;";
+    $SQL = "SELECT testName, testPrice, Tests.testId FROM WishList, Tests WHERE userId=" . $_SESSION['userid'] . " AND Tests.testId=WishList.testId;";
     $exeSQL = mysqli_query($conn, $SQL);
     //create an array of records (2 dimensional variable) called $arrayw.
     //populate it with the records retrieved by the SQL query previously executed.
@@ -23,11 +23,11 @@ if (isset($_SESSION["user_type"]) && $_SESSION["user_type"] == "Customer") {
         echo "<br><br><br><a href=index.php>Add Items</a> to your wishlist.";
     } else {
         echo "<table>
-        <tr><th>Product Name</th><th >Price</th><th></th><th></th><th></th></tr>";
+        <tr><th>Product Name</th><th >Price</th><th></th><th></th></tr>";
         while ($arrayw = mysqli_fetch_array($exeSQL)) {
-            $index = $arrayw['prodId'];
-            echo "<tr><td >" . $arrayw['prodName'] . "</td>";
-            echo "<td>" . $arrayw['prodPrice'] . "</td>";
+            $index = $arrayw['testId'];
+            echo "<tr><td >" . $arrayw['testName'] . "</td>";
+            echo "<td>" . $arrayw['testPrice'] . "</td>";
             echo "<td >";
             echo "<form action=wishlist.php method=post>";
             echo "<input type=submit value='Remove'>";

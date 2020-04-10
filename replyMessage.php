@@ -11,7 +11,7 @@
       $id = $_GET['id'];
 
       echo "<form class='' action='replyMessage.php?id=$id' method='post'>
-        <input type='text' name='username' placeholder='Your Name: '><br>
+        
         <br><textarea name='message' rows='3' cols='80' placeholder='Write your reply here...'></textarea>
         <br><input type='submit' name='reply' value='Enter'>
       </form>";
@@ -25,7 +25,7 @@
   require 'connect.php';
 
   if (isset($_POST['reply'])) {
-    $username = $_POST["username"];
+    $username = $_SESSION["userId"];
     $message = $_POST["message"];
     $time = date("Y-m-d h:i:s");
 
