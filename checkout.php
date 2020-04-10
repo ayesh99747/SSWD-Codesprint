@@ -17,10 +17,10 @@ echo "<h4>" . $pagename . "</h4>"; //display name of the page on the web page
 $currentdatetime = date("Y-m-d H:i:s");
 $currentUserId = $_SESSION['userid'];
 
-$SQL = "insert into orders (userId, orderDateTime, orderStatus) values (" . $currentUserId . ",'" . $currentdatetime . "', 'Placed');";
+$SQL = "insert into orders (userId, orderDateTime) values (" . $currentUserId . ",'" . $currentdatetime . "');";
 //run SQL query for connected DB or exit and display error message
 mysqli_query($conn, $SQL);
-
+echo mysqli_error($conn);
 if (mysqli_errno($conn) == 0) {
     $SQL = "select MAX(orderNo) as orderNo, orderDateTime, orderTotal from orders WHERE userId = " . $currentUserId . ";";
     //run SQL query for connected DB or exit and display error message
@@ -34,39 +34,36 @@ if (mysqli_errno($conn) == 0) {
 
         echo "<table>";
         echo "<tr>";
-        echo "<th>Product Name</th>";
+        echo "<th>Test Name</th>";
         echo "<th>Price</th>";
-        echo "<th>Quantity</th>";
-        echo "<th>Subtotal</th>";
+        echo "<th>Date</th>";
         echo "</tr>";
         $total = 0;
 
         foreach ($_SESSION['basket'] as $index => $value) {
             //create a $SQL variable and populate it with a SQL statement that retrieves product details
-            $SQL = "select prodId, prodName, prodPrice from Product WHERE prodID = $index";
+            $SQL = "select testId, testName, testPrice from tests WHERE testID = $index";
             //run SQL query for connected DB or exit and display error message
             $exeSQL = mysqli_query($conn, $SQL) or die(mysqli_error($conn));
 
             while ($arrayb = mysqli_fetch_array($exeSQL)) {
 
-                $subtotal = $value * $arrayb['prodPrice'];
-                $total += $subtotal;
+                $total += $arrayb['testPrice'];
 
-                $SQL = "insert into order_line (orderNo, prodId, quantityOrdered, subTotal) values (" . $orderNo . "," . $index . "," . $value . "," . $subtotal . ");";
-                //run SQL query for connected DB or exit and display error message
-                mysqli_query($conn, $SQL);
+                // $SQL = "insert into order_line (orderNo, testId, testDate, testPrice) values (" . $orderNo . "," . $index . "," . $value . "," . $subtotal . ");";
+                // //run SQL query for connected DB or exit and display error message
+                // mysqli_query($conn, $SQL);
 
                 echo "<tr>";
-                echo "<td>" . $arrayb['prodName'] . "</td>";
-                echo "<td>&euro;" . $arrayb['prodPrice'] . "</td>";
+                echo "<td>" . $arrayb['testName'] . "</td>";
+                echo "<td>&euro;" . $arrayb['testPrice'] . "</td>";
                 echo "<td class='quantity'>" . $value . "</td>";
-                echo "<td>&euro;" . $subtotal . "</td>";
                 echo "</tr>";
             }
         }
 
         // echo "<tr>";
-        echo "<td id='total' colspan='3'>TOTAL</td>";
+        echo "<td id='total' colspan='2'>TOTAL</td>";
         echo "<td><b>&euro;" . number_format($total, 2) . "</b></td>";
         echo "</tr>";
         echo "</table>";
@@ -81,7 +78,7 @@ if (mysqli_errno($conn) == 0) {
     }
 } else {
     echo "<b>Checkout failed!</b>";
-    echo "<p>An error occured while placing the order.</p>";
+    echo "<p>An error occured while scheduling the test.</p>";
 }
 
 unset($_SESSION['basket']);

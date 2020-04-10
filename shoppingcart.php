@@ -52,7 +52,7 @@ if (isset($_SESSION['basket'])) {
             echo "<tr>";
             echo "<td>" . $arrayp['testName'] . "</td>";
             echo "<td>&euro;" . $arrayp['testPrice'] . "</td>";
-            echo "<td class='quantity'>" . $testDate . "</td>";
+            echo "<td class='quantity'>" .  $_SESSION['basket'][$index] . "</td>";
             $total += $arrayp['testPrice'];
             echo "<form action=shoppingcart.php method=post>";
             echo "<td><input type=submit value='Remove'></td>";
@@ -66,13 +66,13 @@ if (isset($_SESSION['basket'])) {
     echo "<p>Basket is empty!</p>";
 }
 echo "<tr>";
-echo "<td id='total' colspan='3'>TOTAL</td>";
+echo "<td id='total' colspan='2'>TOTAL</td>";
 echo "<td><b>&euro;" . number_format($total, 2) . "</b></td>";
 echo "<td></td>";
 echo "</tr>";
 echo "</table>";
 
-echo "<br><a href=clearbasket.php>CLEAR BASKET</a>";
+echo "<br><a href=clearcart.php>CLEAR BASKET</a>";
 
 if (isset($_SESSION['userid'])) {
     echo "<br><br><br>To finalise your order: <a href=checkout.php>Checkout</a>";    
