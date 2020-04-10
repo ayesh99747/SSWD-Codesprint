@@ -1,5 +1,5 @@
 <?php
-require 'connect.php';
+require 'db.php';
 
 $username = $_SESSION["userId"];
 $message = $_POST["message"];
