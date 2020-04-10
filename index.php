@@ -13,7 +13,7 @@ include("detectlogin.php");
 
 echo "<h4>" . $pagename . "</h4>"; //display name of the page on the web page
 
-echo "<form action='products.php' method='GET'>";
+echo "<form action='/SSWD-Codesprint/products.php' method='GET'>";
 echo "<table>";
     echo "<tr>";
     echo "<td style='border: 0px'>";
@@ -39,7 +39,7 @@ echo "<table>";
 
     echo "<tr>";
     echo "<td style='border: 0px'>";
-    echo "<label for='orderBy'>Sort By - </label>";
+    echo "<label for='sortBy'>Sort By - </label>";
     echo "</td>";
     echo "<td style='border: 0px'>";
     echo "<select name='sortBy'>";
