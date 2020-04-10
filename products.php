@@ -1,7 +1,7 @@
 <?php
 include("db.php"); //include db.php file to connect to DB
 echo "<link rel=stylesheet type=text/css href=mystylesheet.css>"; //Call in stylesheet
-$pagename = "Products"; //create and populate variable called $pagename
+$pagename = "Tests"; //create and populate variable called $pagename
 
 echo "<title>" . $pagename . "</title>"; //display name of the page as window title
 
@@ -18,7 +18,7 @@ $searchValue = $_GET['searchValue'];
 $searchCategory = $_GET['searchValue'];
 $sortOrder = $_GET['searchValue'];
 
-if (!isempty($searchValue) || !isempty($searchCategory) || !isempty($sortOrder)) {
+if (!empty($searchValue) || !empty($searchCategory) || !empty($sortOrder)) {
     # code...
 } else {
     //create a $SQL variable and populate it with a SQL statement that retrieves product details
@@ -32,16 +32,16 @@ echo "<table style='border: 0px'>";
 while ($arrayp = mysqli_fetch_array($exeSQL)) {
     echo "<tr>";
     echo "<td style='border: 0px'>";
-    echo "<a href=prodbuy.php?u_prod_id=" . $arrayp['prodId'] . "&view=yes>";
+    echo "<a href=prodbuy.php?u_prod_id=" . $arrayp['testId'] . "&view=yes>";
     //display the small image whose name is contained in the array
-    echo "<img src=images/" .$arrayp['prodPicNameSmall']. " height=250 width=250>";
+    echo "<img src=images/" .$arrayp['testPicNameSmall']. " height=250 width=250>";
     echo "</a>";
     echo "</td>";
     echo "<td style='border: 0px'>";
-    echo "<p><h5>" . $arrayp['prodName'] . "</h5>"; //display product name as contained in the array
-    echo "<p>" . $arrayp['prodDescripShort'];
-    echo "<p><b>&euro;" . $arrayp['prodPrice'] . "</b>";
-    echo "<p><a href=ratings.php?u_prod_id=" . $arrayp['prodId'] . ">Test Ratings</a></p>";
+    echo "<p><h5>" . $arrayp['testName'] . "</h5>"; //display product name as contained in the array
+    echo "<p>" . $arrayp['testDescripShort'];
+    echo "<p><b>&euro;" . $arrayp['testPrice'] . "</b>";
+    echo "<p><a href=ratings.php?u_prod_id=" . $arrayp['testId'] . ">Test Ratings</a></p>";
     echo "</td>";
     echo "</tr>";
 }

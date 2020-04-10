@@ -13,20 +13,20 @@ if (!isset($_SESSION["user_type"]) || $_SESSION["user_type"] != "Administrator")
     //store the value in a local variable called $prodid
     if (isset($_POST['add_prodId'])) {
         $addprodId = $_POST['add_prodId'];
-        $SQL1 = "INSERT INTO WishList (prodId,userId) VALUES (" . $addprodId . ", " . $_SESSION["userid"] . ");";
+        $SQL1 = "INSERT INTO WishList (testId,userId) VALUES (" . $addprodId . ", " . $_SESSION["userid"] . ");";
         $exeSQL = mysqli_query($conn, $SQL1);
         if (mysqli_errno($conn) == 0) {
-            echo "<b>Successfully added product to wish list!</b>";
+            echo "<b>Successfully added test to wish list!</b>";
             echo "<p>View <a href=wishlist.php>WishList</a></p>";
         } else {
             if (mysqli_errno($conn) == 1062) {
-                echo "<p>Item is already in wishlist<br>";
+                echo "<p>Test is already in wishlist<br>";
                 echo "<p>View <a href=wishlist.php>WishList</a></p>";
             }
         }
     }
     $prodid = $_GET['u_prod_id'];
-    $SQL = "SELECT prodId, prodName, prodPicNameLarge,prodDescripLong, prodPrice, prodQuantity FROM Product WHERE prodId='" . $prodid . "';";
+    $SQL = "select testId, testName, testPicNameSmall, testDescripShort, testPrice from tests WHERE testId='" . $prodid . "';";
     //run SQL query for connected DB or exit and display error message
     $exeSQL = mysqli_query($conn, $SQL) or die(mysqli_error("Error"));
     echo "<table style='border: 0px'>";
@@ -47,22 +47,17 @@ if (!isset($_SESSION["user_type"]) || $_SESSION["user_type"] != "Administrator")
         echo "<tr>";
         echo "<td style='border: 0px'>";
         //display the small image whose name is contained in the array
-        echo "<img src=images/" . $arrayp['prodPicNameLarge'] . " height=400 width=400>";
+        echo "<img src=images/" . $arrayp['testPicNameLarge'] . " height=400 width=400>";
         echo "</td>";
         echo "<td style='border: 0px'>";
-        echo "<p><h5>" . $arrayp['prodName'] . "</h5>"; //display product name as contained in the array
-        echo "<p>" . $arrayp['prodDescripLong'] . "</p>";
-        echo "<b><p>&pound;" . $arrayp['prodPrice'] . "</p></b>";
-        echo "<p>Number left in stock: " . $arrayp['prodQuantity'] . "</p>";
-        echo "<p>Number to be purchased: ";
+        echo "<p><h5>" . $arrayp['testName'] . "</h5>"; //display product name as contained in the array
+        echo "<p>" . $arrayp['testDescripLong'] . "</p>";
+        echo "<b><p>&pound;" . $arrayp['testPrice'] . "</p></b>";
+        echo "<p>Date of the test: ";
         //create form made of one text field and one button for user to enter quantity
         //the value entered in the form will be posted to the basket.php to be processed
         echo "<form action=basket.php method=post>";
-        echo "<select name='reQuantity'>";
-        for ($i = 1; $i <= $arrayp['prodQuantity']; $i++) {
-            echo "<option value=" . $i . ">" . $i . "</option>";
-        }
-        echo "</select>";
+        echo "<input type='date' name='testDate'>";
         echo "<input type=submit value='ADD TO BASKET'>";
         //pass the product id to the next page basket.php as a hidden value
         echo "<input type=hidden name='h_prodid' value=" . $prodid . ">";
@@ -73,7 +68,7 @@ if (!isset($_SESSION["user_type"]) || $_SESSION["user_type"] != "Administrator")
     }
     echo "</table>";
 } else {
-    echo "Only Customers can buy products";
+    echo "Only Customers can buy tests";
 }
 include("footfile.html"); //include head layout
 echo "</body>";
