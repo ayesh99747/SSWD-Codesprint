@@ -13,11 +13,6 @@ if (isset($_SESSION["user_type"]) && $_SESSION["user_type"] == "Customer") {
         $SQL1 = "DELETE FROM WishList WHERE prodId=" . $delprodid . " AND userId=" . $_SESSION['userid'] . ";";
         $exeSQL = mysqli_query($conn, $SQL1) or die(mysqli_error("Error"));
         echo "1 item removed from the wish list";
-    } else if (isset($_POST['up_prodid'])) {
-        $upprodid = $_POST['up_prodid'];
-        // $SQL1="UPDATE  FROM WishList WHERE prodId=".$delprodid." AND userId=".$_SESSION['userid'].";";
-        // $exeSQL = mysqli_query($conn, $SQL1) or die(mysqli_error("Error"));
-        echo "1 item updated in the wish list";
     }
     $SQL = "SELECT prodName, prodPrice,Product.prodId FROM WishList, Product WHERE userId=" . $_SESSION['userid'] . " AND Product.prodId=WishList.prodId;";
     $exeSQL = mysqli_query($conn, $SQL);
@@ -38,12 +33,6 @@ if (isset($_SESSION["user_type"]) && $_SESSION["user_type"] == "Customer") {
             echo "<input type=submit value='Remove'>";
             //pass the product id to the next page basket.php as a hidden value
             echo "<input type=hidden name='del_prodid' value=" . $index . ">";
-            echo "</form></td>";
-            echo "<td >";
-            echo "<form action=wishlist.php method=post>";
-            echo "<input type=submit value='Update'>";
-            //pass the product id to the next page basket.php as a hidden value
-            echo "<input type=hidden name='up_prodid' value=" . $index . ">";
             echo "</form></td>";
             echo "<td><form action=prodbuy.php method=get>";
             echo "<input type=submit value='View Product'>";
